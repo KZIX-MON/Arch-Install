@@ -23,10 +23,10 @@ pacman -S --noconfirm grub
 grub-install --target=i386-pc /dev/sdb 
 grub-mkconfig -o /boot/grub/grub.cfg
 
-read -p "Enter your username: " $user
+read -p "Enter your username: " user
 
-useradd -a -m -G audio,optical,storage,video,wheel $user
+useradd -m $user
+usermod -a -G audio,optical,storage,video,wheel $user
 
 echo "$user password:"
-
 passwd $user
