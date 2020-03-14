@@ -59,3 +59,6 @@ cp chroot.sh /mnt/root
 
 echo "Execute the following on your own PC:"
 echo "pacstrap /mnt base base-devel linux linux-firmware vi"
+echo ""
+echo "After executing pacstrap, Execute this command:"
+echo "arch-chroot /mnt"
