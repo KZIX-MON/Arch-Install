@@ -19,8 +19,9 @@ systemctl enable NetworkManager
 systemctl start NetworkManager
 
 #Grub
+read -p "What partion are you instaling grub onto? " sdx
 pacman -S --noconfirm grub
-grub-install --target=i386-pc /dev/sdb 
+grub-install --target=i386-pc /dev/"$sdx" 
 grub-mkconfig -o /boot/grub/grub.cfg
 
 #Hostname
@@ -28,8 +29,8 @@ read -p "Enter your hostname" host
 echo "$host" >> /etc/hostname
 
 echo "127.0.0.1		localhost" >> /etc/hosts
-echo "::1		localhost" >> /etc/hosts
-echo "127.0.1.1		$host.localdomain	$host" >> /etc/hosts
+echo "::1		      localhost" >> /etc/hosts
+echo "127.0.1.1		$host.localdomain   $host" >> /etc/hosts
 
 #Non-Root User
 read -p "Enter your username: " user
