@@ -53,8 +53,9 @@ mount /dev/"$sdx"3 /mnt/home
 mkdir -p /mnt/boot
 mount /dev/"$sdx"1 /mnt/boot
 
-pacstrap /mnt base base-devel linux linux-firmware vi
-
 genfstab -U /mnt >> /mnt/etc/fstab
 
 cp chroot.sh /mnt/root
+
+echo "Execute the following on your own PC:"
+echo "pacstrap /mnt base base-devel linux linux-firmware vi"
